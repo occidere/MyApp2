@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Request</h1>
+  </ion-header-bar>
+  <ion-content>
+
+    <form>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Document ID</span>
+          <input type="text" ng-model="$parent.did", name="did", placeholder="Input Document ID">
+        </label>
+        <label class="item">
+          <button class="button button-block button-balanced" type="submit", ng-click="request()">Request!</button>
+        </label>
+      </div>
+
+      <h3>Folder and Document Info</h3>
+      <div ng-repeat="item in result">
+          <h4><b>{{item.folderName}}'s Info</b> (Latest documetId: {{item.documentList[item.documentList.length - 1]}})</h4>
+          <div ng-repeat="(key, value) in latestDocId">
+            <b>{{key}}</b> : {{value}}
+          </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
